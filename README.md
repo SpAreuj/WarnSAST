@@ -7,9 +7,9 @@ This program aims to identify the use of unsafe library function or vulnerable u
 
 | Vulnerability                       | C/C++ | Java | Pyhton | TO DO |
 |-------------------------------------|:-----:|:----:|:------:|:------|
-| Buffer Overrun                      |  YES  |  NO  |   NO   |   NO  |
-| Command Injection                   |  YES  | YES  |  YES   |   NO  |
-| Deserialization of untrusted data   |  NO   | YES  |  YES   |   NO  |
+| Buffer Overrun                      |  YES  |  NO  |   NO   | DONE  |
+| Command Injection                   |  YES  | YES  |  YES   | DONE  |
+| Deserialization of untrusted data   |  NO   | YES  |  YES   | DONE  |
 | Failure to handle errors correctly  |  YES  | YES  |  YES   |  YES  |
 | Format string problems              |  YES  |  NO  |   NO   |  YES  |
 
