@@ -2,10 +2,16 @@
 
 ------------------------------------------------
 
- ## Description
-This program aims to identify the use of unsafe library function that can cause the 
-Command injection in C/C++/Python/Java files and buffer over run in C/C++
+## Description
+This program aims to identify the use of unsafe library function or vulnerable usage of code constructs. This is an eary phase may gereate some false positive and negatives.
 
+| Vulnerability                       | C/C++ | Java | Pyhton |
+|-------------------------------------|:-----:|:----:|:------:|
+| Buffer Overrun                      |  YES  |  NO  |   NO   |
+| Command Injection                   |  YES  | YES  |  YES   |
+| Deserialization of untrusted data   |  NO   | YES  |  YES   |
+| Failure to handle errors correctly  |  YES  | YES  |  YES   |
+| Format string problems              |  YES  |  NO  |   NO   |
 
 ## Usage
 There are 2 mode of execution:

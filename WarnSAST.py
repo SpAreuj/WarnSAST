@@ -4,16 +4,19 @@ import re
 from datetime import datetime
 
 """
-0-> C/C++ 
-2-> Python
-3-> Java
-4-> C/C++ buffer
+0-> C/C++ command injection
+1-> Python command injection
+2-> Java command injection
+3-> C/C++ buffer
+4-> Java deserialization
+5-> Python deserialization
 """
 
 vulnerable_function_com= [["system","popen", "execlp","execvp","ShellExecute","_wsystem"],["exec","eval", "execfile","input","compile","os.system","os.popen"],["Class.forName","Runtime.exec"]]
 vulnerable_function_buf= ["gets","strcpy", "strcat","sprintf","scanf"]
+vulnerable_function_ser= [["readObject"], ["pickle.load","pickle.loads"]]
 vulnerable_function_buf[4] = vulnerable_function_buf[4] +".*%s"
-vulnerable_reg = [[".*" + sub for sub in vulnerable_function_com[0]], [".*" + sub for sub in vulnerable_function_com[1]], [".*" + sub for sub in vulnerable_function_com[2]], [".*" + sub for sub in vulnerable_function_buf]]
+vulnerable_reg = [[".*" + sub for sub in vulnerable_function_com[0]], [".*" + sub for sub in vulnerable_function_com[1]], [".*" + sub for sub in vulnerable_function_com[2]], [".*" + sub for sub in vulnerable_function_buf], [".*" + sub for sub in vulnerable_function_ser[0]], [".*" + sub for sub in vulnerable_function_ser[1]]]
 
 def get_logname():
     """
@@ -68,6 +71,19 @@ def checker(filename: str ,logfilename: str=None):
                     print("Possible buffer overrun vulnerability found in the file", filename, " line", count)
                     if logfilename != None:
                         logger(logfilename, filename, count, "buffer overrun")
+        if (type == 1):
+            for vulfun in vulnerable_reg[4]:
+                if (re.match(vulfun, line) != None):
+                    print("Possible deserialization of untrusted message vulnerability found in the file", filename, " line", count)
+                    if logfilename != None:
+                        logger(logfilename, filename, count, "deserialization of untrusted message")
+
+        if (type == 2):
+            for vulfun in vulnerable_reg[5]:
+                if (re.match(vulfun, line) != None):
+                    print("Possible deserialization of untrusted message vulnerability found in the file", filename, " line", count)
+                    if logfilename != None:
+                        logger(logfilename, filename, count, "deserialization of untrusted message")
 
         for vulfun in vulnerable_reg[type]:
             if(re.match(vulfun,line) != None):
