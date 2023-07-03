@@ -3,7 +3,7 @@
 ------------------------------------------------
 
 ## Description
-This program aims to identify the use of unsafe library function or vulnerable usage of code constructs. This is an eary phase may gereate some false positive and negatives.
+This program aims to identify the use of unsafe library function or vulnerable usage of code constructs. This is an early phase may gereate some false positive and negatives.
 
 | Vulnerability                       | C/C++ | Java | Pyhton |
 |-------------------------------------|:-----:|:----:|:------:|
