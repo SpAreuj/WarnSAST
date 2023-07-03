@@ -76,14 +76,14 @@ def checker(filename: str ,logfilename: str=None):
                 if (re.match(vulfun, line) != None):
                     print("Possible deserialization of untrusted message vulnerability found in the file", filename, " line", count)
                     if logfilename != None:
-                        logger(logfilename, filename, count, "deserialization of untrusted message")
+                        logger(logfilename, filename, count, "deserialization of untrusted data")
 
         if (type == 2):
             for vulfun in vulnerable_reg[5]:
                 if (re.match(vulfun, line) != None):
                     print("Possible deserialization of untrusted message vulnerability found in the file", filename, " line", count)
                     if logfilename != None:
-                        logger(logfilename, filename, count, "deserialization of untrusted message")
+                        logger(logfilename, filename, count, "deserialization of untrusted data")
 
         for vulfun in vulnerable_reg[type]:
             if(re.match(vulfun,line) != None):

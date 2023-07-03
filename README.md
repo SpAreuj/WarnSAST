@@ -3,15 +3,15 @@
 ------------------------------------------------
 
 ## Description
-This program aims to identify the use of unsafe library function or vulnerable usage of code constructs. This is an eary phase may gereate some false positive and negatives.
+This program aims to identify the use of unsafe library function or vulnerable usage of code constructs. This is an early phase may gereate some false positive and negatives.
 
-| Vulnerability                       | C/C++ | Java | Pyhton |
-|-------------------------------------|:-----:|:----:|:------:|
-| Buffer Overrun                      |  YES  |  NO  |   NO   |
-| Command Injection                   |  YES  | YES  |  YES   |
-| Deserialization of untrusted data   |  NO   | YES  |  YES   |
-| Failure to handle errors correctly  |  YES  | YES  |  YES   |
-| Format string problems              |  YES  |  NO  |   NO   |
+| Vulnerability                       | C/C++ | Java | Pyhton | TO DO |
+|-------------------------------------|:-----:|:----:|:------:|:------|
+| Buffer Overrun                      |  YES  |  NO  |   NO   |   NO  |
+| Command Injection                   |  YES  | YES  |  YES   |   NO  |
+| Deserialization of untrusted data   |  NO   | YES  |  YES   |   NO  |
+| Failure to handle errors correctly  |  YES  | YES  |  YES   |  YES  |
+| Format string problems              |  YES  |  NO  |   NO   |  YES  |
 
 ## Usage
 There are 2 mode of execution:
